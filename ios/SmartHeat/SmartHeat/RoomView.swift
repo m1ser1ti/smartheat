@@ -27,17 +27,25 @@ struct RoomView: View {
                     }
                     .frame(maxWidth: .infinity)
                     .padding(.vertical, 8)
+                } footer: {
+                    if let note = data.notes.first {
+                        Text(note).frame(maxWidth: .infinity, alignment: .center).multilineTextAlignment(.center)
+                    }
                 }
 
                 Section("Now") {
                     LabeledContent("Outside", value: room.tempOutside.celsius)
                     LabeledContent("Window") {
-                        Label(room.windowOpen ? "Open" : "Closed",
-                              systemImage: room.windowOpen ? "window.casement" : "window.casement.closed")
+                        // A Label inside LabeledContent stretches the row height on iOS 27, hence the HStack.
+                        HStack(spacing: 6) {
+                            Image(systemName: room.windowOpen ? "window.casement" : "window.casement.closed")
+                                .foregroundStyle(.tint)
+                            Text(room.windowOpen ? "Open" : "Closed")
+                        }
                     }
                     LabeledContent("Radiator valve") {
                         HStack {
-                            ProgressView(value: room.valve).frame(width: 80)
+                            ValveBar(value: room.valve)
                             Text(room.valve, format: .percent.precision(.fractionLength(0)))
                                 .monospacedDigit()
                         }
@@ -65,6 +73,21 @@ struct RoomView: View {
                 }
             }
             .navigationTitle(room.name)
+        }
+    }
+
+    /// Valve opening bar. A ProgressView inside LabeledContent inflates the row height on iOS 27.
+    private struct ValveBar: View {
+        let value: Double
+
+        var body: some View {
+            Capsule()
+                .fill(.quaternary)
+                .overlay(alignment: .leading) {
+                    Capsule().fill(.tint).frame(width: 80 * min(max(value, 0), 1))
+                }
+                .frame(width: 80, height: 6)
+                .accessibilityHidden(true)
         }
     }
 

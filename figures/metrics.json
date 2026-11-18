@@ -1,0 +1,348 @@
+{
+  "h1": {
+    "horizon_h": 1,
+    "n_train": 58560,
+    "n_valid": 10414,
+    "n_test": 28210,
+    "best_iteration": 1971,
+    "mae_c": {
+      "persistence": 0.1256,
+      "ridge": 0.0983,
+      "lightgbm": 0.0787
+    },
+    "lightgbm_resid_std_c": 0.1257,
+    "lightgbm_resid_p95_abs_c": 0.2584,
+    "skill_vs_persistence": 0.373,
+    "overheat_24c": {
+      "persistence": [
+        {
+          "alert_at_c": 24.0,
+          "events": 78,
+          "alerts": 78,
+          "precision": 0.679,
+          "recall": 0.679
+        },
+        {
+          "alert_at_c": 23.5,
+          "events": 78,
+          "alerts": 305,
+          "precision": 0.233,
+          "recall": 0.91
+        },
+        {
+          "alert_at_c": 23.0,
+          "events": 78,
+          "alerts": 863,
+          "precision": 0.09,
+          "recall": 1.0
+        }
+      ],
+      "ridge": [
+        {
+          "alert_at_c": 24.0,
+          "events": 78,
+          "alerts": 67,
+          "precision": 0.716,
+          "recall": 0.615
+        },
+        {
+          "alert_at_c": 23.5,
+          "events": 78,
+          "alerts": 270,
+          "precision": 0.267,
+          "recall": 0.923
+        },
+        {
+          "alert_at_c": 23.0,
+          "events": 78,
+          "alerts": 824,
+          "precision": 0.095,
+          "recall": 1.0
+        }
+      ],
+      "lightgbm": [
+        {
+          "alert_at_c": 24.0,
+          "events": 78,
+          "alerts": 52,
+          "precision": 0.827,
+          "recall": 0.551
+        },
+        {
+          "alert_at_c": 23.5,
+          "events": 78,
+          "alerts": 237,
+          "precision": 0.308,
+          "recall": 0.936
+        },
+        {
+          "alert_at_c": 23.0,
+          "events": 78,
+          "alerts": 808,
+          "precision": 0.097,
+          "recall": 1.0
+        }
+      ]
+    },
+    "per_room_mae_c": {
+      "Use1001_bath": {
+        "lgb": 0.099,
+        "persist": 0.134
+      },
+      "Use1001_child1": {
+        "lgb": 0.067,
+        "persist": 0.112
+      },
+      "Use1001_child2": {
+        "lgb": 0.064,
+        "persist": 0.093
+      },
+      "Use1001_dining": {
+        "lgb": 0.094,
+        "persist": 0.148
+      },
+      "Use1001_kitchen": {
+        "lgb": 0.139,
+        "persist": 0.186
+      },
+      "Use1001_living": {
+        "lgb": 0.091,
+        "persist": 0.151
+      },
+      "Use1001_sleep": {
+        "lgb": 0.048,
+        "persist": 0.058
+      },
+      "Use1002_bath": {
+        "lgb": 0.093,
+        "persist": 0.142
+      },
+      "Use1002_child1": {
+        "lgb": 0.055,
+        "persist": 0.13
+      },
+      "Use1002_child2": {
+        "lgb": 0.063,
+        "persist": 0.099
+      },
+      "Use1002_dining": {
+        "lgb": 0.079,
+        "persist": 0.154
+      },
+      "Use1002_kitchen": {
+        "lgb": 0.093,
+        "persist": 0.137
+      },
+      "Use1002_living": {
+        "lgb": 0.073,
+        "persist": 0.163
+      },
+      "Use1002_sleep": {
+        "lgb": 0.045,
+        "persist": 0.054
+      }
+    },
+    "feature_gain_share": {
+      "dT_1h": 0.2577,
+      "hour": 0.1165,
+      "room_id": 0.1068,
+      "dT_3h": 0.0841,
+      "t_air_lag1": 0.0547,
+      "t_supply": 0.0463,
+      "t_out_mean24": 0.0341,
+      "solar_future": 0.0319,
+      "t_air": 0.0289,
+      "heat_on": 0.0241,
+      "t_air_lag3": 0.0239,
+      "t_air_lag12": 0.0201,
+      "t_air_lag24": 0.0199,
+      "t_air_lag6": 0.0197,
+      "solar": 0.019,
+      "t_air_lag2": 0.0183,
+      "t_out_future": 0.0171,
+      "t_out": 0.0158,
+      "valve": 0.0152,
+      "valve_mean12": 0.0141,
+      "t_in_minus_out": 0.0132,
+      "valve_mean3": 0.0064,
+      "valve_lag1": 0.0062,
+      "dow": 0.0059
+    }
+  },
+  "h3": {
+    "horizon_h": 3,
+    "n_train": 58524,
+    "n_valid": 10414,
+    "n_test": 28182,
+    "best_iteration": 1141,
+    "mae_c": {
+      "persistence": 0.3131,
+      "ridge": 0.2515,
+      "lightgbm": 0.1684
+    },
+    "lightgbm_resid_std_c": 0.2528,
+    "lightgbm_resid_p95_abs_c": 0.5311,
+    "skill_vs_persistence": 0.462,
+    "overheat_24c": {
+      "persistence": [
+        {
+          "alert_at_c": 24.0,
+          "events": 78,
+          "alerts": 78,
+          "precision": 0.346,
+          "recall": 0.346
+        },
+        {
+          "alert_at_c": 23.5,
+          "events": 78,
+          "alerts": 305,
+          "precision": 0.141,
+          "recall": 0.551
+        },
+        {
+          "alert_at_c": 23.0,
+          "events": 78,
+          "alerts": 860,
+          "precision": 0.067,
+          "recall": 0.744
+        }
+      ],
+      "ridge": [
+        {
+          "alert_at_c": 24.0,
+          "events": 78,
+          "alerts": 32,
+          "precision": 0.531,
+          "recall": 0.218
+        },
+        {
+          "alert_at_c": 23.5,
+          "events": 78,
+          "alerts": 161,
+          "precision": 0.224,
+          "recall": 0.462
+        },
+        {
+          "alert_at_c": 23.0,
+          "events": 78,
+          "alerts": 555,
+          "precision": 0.106,
+          "recall": 0.756
+        }
+      ],
+      "lightgbm": [
+        {
+          "alert_at_c": 24.0,
+          "events": 78,
+          "alerts": 25,
+          "precision": 0.68,
+          "recall": 0.218
+        },
+        {
+          "alert_at_c": 23.5,
+          "events": 78,
+          "alerts": 184,
+          "precision": 0.299,
+          "recall": 0.705
+        },
+        {
+          "alert_at_c": 23.0,
+          "events": 78,
+          "alerts": 645,
+          "precision": 0.11,
+          "recall": 0.91
+        }
+      ]
+    },
+    "per_room_mae_c": {
+      "Use1001_bath": {
+        "lgb": 0.18,
+        "persist": 0.299
+      },
+      "Use1001_child1": {
+        "lgb": 0.177,
+        "persist": 0.292
+      },
+      "Use1001_child2": {
+        "lgb": 0.165,
+        "persist": 0.232
+      },
+      "Use1001_dining": {
+        "lgb": 0.216,
+        "persist": 0.386
+      },
+      "Use1001_kitchen": {
+        "lgb": 0.239,
+        "persist": 0.422
+      },
+      "Use1001_living": {
+        "lgb": 0.21,
+        "persist": 0.4
+      },
+      "Use1001_sleep": {
+        "lgb": 0.091,
+        "persist": 0.128
+      },
+      "Use1002_bath": {
+        "lgb": 0.176,
+        "persist": 0.336
+      },
+      "Use1002_child1": {
+        "lgb": 0.139,
+        "persist": 0.341
+      },
+      "Use1002_child2": {
+        "lgb": 0.151,
+        "persist": 0.239
+      },
+      "Use1002_dining": {
+        "lgb": 0.174,
+        "persist": 0.403
+      },
+      "Use1002_kitchen": {
+        "lgb": 0.174,
+        "persist": 0.341
+      },
+      "Use1002_living": {
+        "lgb": 0.169,
+        "persist": 0.451
+      },
+      "Use1002_sleep": {
+        "lgb": 0.094,
+        "persist": 0.112
+      }
+    },
+    "feature_gain_share": {
+      "hour": 0.2417,
+      "room_id": 0.175,
+      "t_air": 0.0674,
+      "solar_future": 0.0648,
+      "dT_3h": 0.059,
+      "dT_1h": 0.0588,
+      "t_air_lag1": 0.0425,
+      "t_supply": 0.0401,
+      "t_out_mean24": 0.0354,
+      "t_air_lag12": 0.0272,
+      "t_out_future": 0.0204,
+      "solar": 0.02,
+      "valve_mean12": 0.019,
+      "heat_on": 0.0185,
+      "t_air_lag2": 0.0163,
+      "t_air_lag6": 0.0153,
+      "valve": 0.0141,
+      "t_out": 0.014,
+      "t_air_lag24": 0.014,
+      "t_air_lag3": 0.0113,
+      "t_in_minus_out": 0.0089,
+      "dow": 0.0068,
+      "valve_lag1": 0.0049,
+      "valve_mean3": 0.0047
+    }
+  },
+  "split": {
+    "train_end": "2026-01-01",
+    "valid_end": "2026-02-01",
+    "test": "2026-02-01..2026-04-25"
+  },
+  "data": "ThermBuild measured (2 TwinHouses, 14 rooms), heating months, hourly"
+}

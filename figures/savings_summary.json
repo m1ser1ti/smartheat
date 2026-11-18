@@ -1,0 +1,88 @@
+{
+  "forecast_noise_std_c": 0.1257,
+  "cities": {
+    "Astana": {
+      "season": [
+        "2025-09-28",
+        "2026-04-20"
+      ],
+      "days": 205,
+      "mean_t_out_c": -5.09,
+      "low": {
+        "without_kwh": 3902.8,
+        "smartheat_kwh": 3684.7,
+        "saved_kwh": 218.2,
+        "saved_pct": 5.6,
+        "hours_above_24_without": 117.5,
+        "hours_above_24_smartheat": 0.0,
+        "hours_below_20_smartheat": 0.0,
+        "window_open_hours_without": 358.5
+      },
+      "base": {
+        "without_kwh": 4204.7,
+        "smartheat_kwh": 3720.8,
+        "saved_kwh": 483.9,
+        "saved_pct": 11.5,
+        "hours_above_24_without": 79.5,
+        "hours_above_24_smartheat": 0.0,
+        "hours_below_20_smartheat": 0.0,
+        "window_open_hours_without": 426.2
+      },
+      "high": {
+        "without_kwh": 4604.8,
+        "smartheat_kwh": 3736.8,
+        "saved_kwh": 867.9,
+        "saved_pct": 18.8,
+        "hours_above_24_without": 93.0,
+        "hours_above_24_smartheat": 0.0,
+        "hours_below_20_smartheat": 0.0,
+        "window_open_hours_without": 497.2
+      },
+      "thermostat_no_forecast_kwh": 3727.8,
+      "thermostat_hours_above_22_5": 3.0,
+      "co2_kg_per_kwh_heat": 0.4007
+    },
+    "Baku": {
+      "season": [
+        "2025-12-14",
+        "2026-03-14"
+      ],
+      "days": 91,
+      "mean_t_out_c": 5.88,
+      "low": {
+        "without_kwh": 1423.6,
+        "smartheat_kwh": 864.1,
+        "saved_kwh": 559.6,
+        "saved_pct": 39.3,
+        "hours_above_24_without": 98.5,
+        "hours_above_24_smartheat": 0.0,
+        "hours_below_20_smartheat": 0.0,
+        "window_open_hours_without": 957.2
+      },
+      "base": {
+        "without_kwh": 1623.0,
+        "smartheat_kwh": 862.9,
+        "saved_kwh": 760.0,
+        "saved_pct": 46.8,
+        "hours_above_24_without": 80.5,
+        "hours_above_24_smartheat": 0.0,
+        "hours_below_20_smartheat": 0.0,
+        "window_open_hours_without": 710.2
+      },
+      "high": {
+        "without_kwh": 1859.7,
+        "smartheat_kwh": 861.4,
+        "saved_kwh": 998.3,
+        "saved_pct": 53.7,
+        "hours_above_24_without": 101.0,
+        "hours_above_24_smartheat": 0.0,
+        "hours_below_20_smartheat": 0.0,
+        "window_open_hours_without": 640.2
+      },
+      "thermostat_no_forecast_kwh": 870.2,
+      "thermostat_hours_above_22_5": 0.5,
+      "co2_kg_per_kwh_heat": 0.2244
+    }
+  },
+  "demo_moment": "2025-10-21T10:00"
+}

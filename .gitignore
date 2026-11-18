@@ -13,6 +13,9 @@ data/clean/*
 !data/raw/.gitkeep
 !data/clean/.gitkeep
 
+# Trained models: reproduced by src/model.py
+models/
+
 # Xcode
 ios/**/xcuserdata/
 ios/**/DerivedData/

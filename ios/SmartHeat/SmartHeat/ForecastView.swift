@@ -61,7 +61,12 @@ struct ForecastView: View {
         .chartXAxis {
             AxisMarks(values: [0, 60, 120, 180]) { value in
                 AxisGridLine()
-                AxisValueLabel { if let m = value.as(Int.self) { Text(m == 0 ? "now" : "+\(m / 60) h") } }
+                // Edge labels are anchored inward, otherwise "+3 h" at the right edge gets dropped.
+                let m = value.as(Int.self) ?? 0
+                AxisValueLabel(anchor: m == 0 ? .topLeading : (m == 180 ? .topTrailing : .top),
+                               collisionResolution: .disabled) {
+                    Text(m == 0 ? "now" : "+\(m / 60) h")
+                }
             }
         }
         .chartYScale(domain: yDomain)
@@ -74,9 +79,13 @@ struct ForecastView: View {
     }
 
     private var modelNote: String {
-        var parts = ["Model: \(forecast.model)"]
-        if let mae = forecast.maeHour1C { parts.append("error 1 h ±\(mae.formatted(.number.precision(.fractionLength(2)))) °C") }
-        if let mae = forecast.maeHour3C { parts.append("3 h ±\(mae.formatted(.number.precision(.fractionLength(2)))) °C") }
-        return parts.joined(separator: " · ")
+        var note = "Source: \(forecast.model)."
+        let errors = [("1 h", forecast.maeHour1C), ("3 h", forecast.maeHour3C)].compactMap { label, mae in
+            mae.map { "\(label) ±\($0.formatted(.number.precision(.fractionLength(2)))) °C" }
+        }
+        if !errors.isEmpty {
+            note += " LightGBM error on real rooms (ThermBuild test data): " + errors.joined(separator: ", ") + "."
+        }
+        return note
     }
 }
