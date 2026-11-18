@@ -1,0 +1,176 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-11-18T13:08:52+00:00",
+  "synthetic": true,
+  "notes": [
+    "Synthetic weather and physics forecast stub. Not for the application."
+  ],
+  "room": {
+    "name": "Living room",
+    "city": "Astana",
+    "temp_now": 23.0,
+    "temp_outside": 7.4,
+    "target_min": 21.0,
+    "target_max": 22.0,
+    "overheat_threshold": 24.0,
+    "window_open": false,
+    "valve": 0.5
+  },
+  "forecast": {
+    "model": "physics-stub",
+    "step_minutes": 15,
+    "mae_hour1_c": null,
+    "mae_hour3_c": null,
+    "points": [
+      {
+        "minutes": 0,
+        "temp": 23.0,
+        "temp_with_system": 23.0
+      },
+      {
+        "minutes": 15,
+        "temp": 23.09,
+        "temp_with_system": 22.88
+      },
+      {
+        "minutes": 30,
+        "temp": 23.19,
+        "temp_with_system": 22.77
+      },
+      {
+        "minutes": 45,
+        "temp": 23.28,
+        "temp_with_system": 22.66
+      },
+      {
+        "minutes": 60,
+        "temp": 23.37,
+        "temp_with_system": 22.55
+      },
+      {
+        "minutes": 75,
+        "temp": 23.46,
+        "temp_with_system": 22.44
+      },
+      {
+        "minutes": 90,
+        "temp": 23.55,
+        "temp_with_system": 22.33
+      },
+      {
+        "minutes": 105,
+        "temp": 23.64,
+        "temp_with_system": 22.23
+      },
+      {
+        "minutes": 120,
+        "temp": 23.73,
+        "temp_with_system": 22.12
+      },
+      {
+        "minutes": 135,
+        "temp": 23.81,
+        "temp_with_system": 22.07
+      },
+      {
+        "minutes": 150,
+        "temp": 23.89,
+        "temp_with_system": 22.02
+      },
+      {
+        "minutes": 165,
+        "temp": 23.97,
+        "temp_with_system": 21.97
+      },
+      {
+        "minutes": 180,
+        "temp": 24.05,
+        "temp_with_system": 21.98
+      }
+    ]
+  },
+  "alert": {
+    "overheat_in_minutes": 180,
+    "title": "Overheating soon",
+    "body": "Room will pass 24 °C in 180 min. Close the window, SmartHeat turns the valve down."
+  },
+  "advice": [
+    {
+      "id": "overheat_soon",
+      "severity": "warning",
+      "title": "Overheating expected",
+      "text": "The forecast shows more than 24 °C in about 180 min. The smart valve is closing to keep 22 °C."
+    },
+    {
+      "id": "close_window",
+      "severity": "warning",
+      "title": "Close the window",
+      "text": "The room is warm because the radiator runs at full power. Opening the window wastes that heat; SmartHeat will turn the valve down instead."
+    },
+    {
+      "id": "ventilate_short",
+      "severity": "info",
+      "title": "Ventilate briefly",
+      "text": "If you need fresh air, open the window wide for 5 minutes instead of keeping it ajar."
+    },
+    {
+      "id": "night",
+      "severity": "info",
+      "title": "Night mode",
+      "text": "At night 20-21 °C is enough for good sleep and saves heat."
+    }
+  ],
+  "savings": [
+    {
+      "city": "Astana",
+      "period_days": 30,
+      "scope": "room",
+      "building_rooms": 100,
+      "kwh": {
+        "low": 11.4,
+        "base": 34.2,
+        "high": 73.0
+      },
+      "percent": {
+        "low": 1.9,
+        "base": 5.4,
+        "high": 10.8
+      },
+      "money": null,
+      "co2_kg": null,
+      "hours_above_24": {
+        "baseline": 2.5,
+        "smart": 0.0
+      }
+    },
+    {
+      "city": "Baku",
+      "period_days": 30,
+      "scope": "room",
+      "building_rooms": 100,
+      "kwh": {
+        "low": 405.8,
+        "base": 412.3,
+        "high": 422.8
+      },
+      "percent": {
+        "low": 40.0,
+        "base": 40.3,
+        "high": 40.9
+      },
+      "money": null,
+      "co2_kg": null,
+      "hours_above_24": {
+        "baseline": 33.8,
+        "smart": 0.0
+      }
+    }
+  ],
+  "assumptions": [
+    "Room ~20 m2 in a panel building, envelope UA 25 W/K, infiltration 9 W/K",
+    "Open window adds 60 W/K (range 30-90)",
+    "Supply curve 95 C at design outdoor temperature, 40 C at +8 C, minimum 60 C (range 55-65)",
+    "Baseline: radiator valve always open, window opened above 24 C, closed below 22 C",
+    "Smart: window kept closed, valve throttled when the 1-hour forecast exceeds 22 C"
+  ]
+}
