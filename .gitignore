@@ -21,3 +21,6 @@ ios/**/xcuserdata/
 ios/**/DerivedData/
 *.xcuserstate
 build/
+
+# Application materials (kept local)
+submission/
