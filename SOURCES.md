@@ -39,6 +39,7 @@ Every dataset and every number in the application must be listed here: name, lin
 | CO2 of natural gas | 56.1 t CO2/TJ = 0.202 kg/kWh of fuel | same | ok |
 | Heat generation efficiency | 0.85 (coal, Astana), 0.90 (gas, Baku) | assumption | ask IR |
 | Heat tariffs KZ/AZ | none | from IR | expected by 23 November |
+| Hardware prices | ~$55 per room, ~$175 per gateway | shop links in `docs/cost_estimate.md` (checked 18.11.2026) | ok, prices change |
 
 ## Results (citable in the application)
 - Model: `figures/metrics.json`. Test 01.02-25.04.2026, 14 rooms, 28,210 room-hours. LightGBM MAE 0.079 °C (1 h) and 0.168 °C (3 h) vs 0.126 and 0.313 °C for the no-change forecast.
