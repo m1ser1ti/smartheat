@@ -16,8 +16,8 @@ from matplotlib.patches import FancyArrowPatch, FancyBboxPatch  # noqa: E402
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "figures" / "architecture.png"
 
-SURFACE, INK, INK2 = "#fcfcfb", "#0b0b0b", "#52514e"
-BUILT_FILL, BUILT_EDGE = "#e3eefb", "#2a78d6"
+SURFACE, INK, INK2 = "#fcfcfb", "#14213d", "#52514e"
+BUILT_FILL, BUILT_EDGE = "#e4eefb", "#1e6fd9"  # brand blue
 CONCEPT_FILL, CONCEPT_EDGE = "#f1f0ec", "#8a8984"
 
 
@@ -99,6 +99,10 @@ def main() -> None:
     ax.text(1.25, 1.32, "(not built yet)", va="center", fontsize=8.5, color=INK2)
 
     ax.text(0.3, 10.4, "SmartHeat: how it works", fontsize=15, fontweight="bold", color=INK, va="center")
+    logo = plt.imread(ROOT / "docs" / "brand" / "logo.png")
+    ax.imshow(logo, extent=(19.6, 25.2, 9.85, 11.0), aspect="auto", zorder=5)
+    ax.set_xlim(0, 25.5)
+    ax.set_ylim(0.3, 11.2)
     OUT.parent.mkdir(exist_ok=True)
     fig.savefig(OUT, dpi=200, bbox_inches="tight", facecolor=SURFACE)
     print(f"-> {OUT.relative_to(ROOT)}")

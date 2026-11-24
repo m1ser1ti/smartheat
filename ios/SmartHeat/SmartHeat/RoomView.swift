@@ -73,6 +73,7 @@ struct RoomView: View {
                 }
             }
             .navigationTitle(room.name)
+            .toolbar { ToolbarItem(placement: .topBarTrailing) { LogoMark() } }
         }
     }
 
@@ -93,7 +94,7 @@ struct RoomView: View {
 
     private var statusColor: Color {
         switch status {
-        case .comfortable: .green
+        case .comfortable: Brand.green
         case .warm: .orange
         case .overheating: .red
         case .cool: .blue

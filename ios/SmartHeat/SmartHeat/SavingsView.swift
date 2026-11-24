@@ -50,6 +50,7 @@ struct SavingsView: View {
                 }
             }
             .navigationTitle("Savings")
+            .toolbar { ToolbarItem(placement: .topBarTrailing) { LogoMark() } }
             .onAppear { if city.isEmpty { city = data.savings.first?.city ?? "" } }
         }
     }

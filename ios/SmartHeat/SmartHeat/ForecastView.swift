@@ -35,13 +35,14 @@ struct ForecastView: View {
                 }
             }
             .navigationTitle("Forecast")
+            .toolbar { ToolbarItem(placement: .topBarTrailing) { LogoMark() } }
         }
     }
 
     private var chart: some View {
         Chart {
             RectangleMark(yStart: .value("Min", room.targetMin), yEnd: .value("Max", room.targetMax))
-                .foregroundStyle(.green.opacity(0.12))
+                .foregroundStyle(Brand.lightGreen.opacity(0.18))
             RuleMark(y: .value("Overheat", room.overheatThreshold))
                 .foregroundStyle(.red.opacity(0.6))
                 .lineStyle(StrokeStyle(lineWidth: 1, dash: [4, 4]))
@@ -57,7 +58,7 @@ struct ForecastView: View {
                     .foregroundStyle(by: .value("Scenario", "With SmartHeat"))
             }
         }
-        .chartForegroundStyleScale(["No action": Color.orange, "With SmartHeat": Color.teal])
+        .chartForegroundStyleScale(["No action": Color.orange, "With SmartHeat": Brand.green])
         .chartXAxis {
             AxisMarks(values: [0, 60, 120, 180]) { value in
                 AxisGridLine()
