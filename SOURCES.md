@@ -38,10 +38,16 @@ Every dataset and every number in the application must be listed here: name, lin
 | CO2 of coal (other bituminous) | 94.6 t CO2/TJ = 0.341 kg/kWh of fuel | IPCC 2006 GL, Vol. 2, Ch. 1, Table 1.4; repeated in EU 2018/2066 Annex VI https://www.legislation.gov.uk/eur/2018/2066/annex/VI/data.pdf | ok |
 | CO2 of natural gas | 56.1 t CO2/TJ = 0.202 kg/kWh of fuel | same | ok |
 | Heat generation efficiency | 0.85 (coal, Astana), 0.90 (gas, Baku) | assumption | ask IR |
-| Heat tariffs KZ/AZ | none | from IR | expected by 23 November |
+| Heat tariff, Astana | 4,061.11 KZT/Gcal excl. VAT (with building meter); 4,956 without | Astana-Teplotranzit via [NewTimes.kz, 12.11.2026](https://newtimes.kz/obshchestvo/225947-noiabrskie-kvitantsii-napugali-astanchan-otkuda-vzialis-takie-summy) and [BES.media, 12.11.2026](https://bes.media/news/kak-budto-yanvar-zhiteli-astany-pozhalovalis-na-scheta-za-otoplenie-v-oktyabre/) | ok, metered value used |
+| Heat tariff, Baku | 14.60 AZN/Gcal incl. VAT, metered households | [Energy Regulatory Agency (AERA), Tariff Council decision No. 17, 29.12.2024](https://regulator.gov.az/en/istilik/istilik-enerjisinin-tarifleri) | ok, lower bound for public buildings |
+| Exchange rates 24.11.2026 | 455.12 KZT/USD; 1.70 AZN/USD | [National Bank of Kazakhstan](https://nationalbank.kz/en/exchangerates/ezhednevnye-oficialnye-rynochnye-kursy-valyut), [Central Bank of Azerbaijan](https://www.cbar.az/currency/rates) | ok |
 | Hardware prices | ~$55 per room, ~$175 per gateway | shop links in `docs/cost_estimate.md` (checked 18.11.2026) | ok, prices change |
 
 ## Results (citable in the application)
 - Model: `figures/metrics.json`. Test 01.02-25.04.2026, 14 rooms, 28,210 room-hours. LightGBM MAE 0.079 °C (1 h) and 0.168 °C (3 h) vs 0.126 and 0.313 °C for the no-change forecast.
 - Savings: `figures/savings_summary.json`. Astana 5.6-18.8 % of heat (base 11.5 %, 484 kWh per room over the 2025/26 season). Baku 39-54 %, strongly assumption-dependent.
 - A plain thermostat without a forecast saves almost as much in the simulation (3728 vs 3721 kWh in Astana): the automatic valve delivers the savings, the forecast adds lead time and alerts.
+
+## Software and tools used
+Python (pandas, NumPy, scikit-learn, LightGBM, matplotlib), Swift and SwiftUI (Swift Charts), Xcode, Git and GitHub,
+Open-Meteo API. Icons in the app use Apple SF Symbols. Logo and infographic: designed by the team.

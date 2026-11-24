@@ -43,8 +43,23 @@ temperature sensor, but it measures next to the hot radiator and cannot see open
 - Shipping, import duties and local taxes in Kazakhstan and Azerbaijan.
 - Software: free and open source (Python, LightGBM, Open-Meteo for non-commercial use), runs on the gateway.
 
-## Payback
+## Money and payback
 
-Payback (years) = cost per room / (heat saved per room per season x heat tariff).
-Heat saved per room in Astana: 218-868 kWh per season, base 484 kWh (`figures/savings_summary.json`).
-The tariff will come from the policy part of the team; until then payback is not calculated.
+Heat tariffs used (today's prices; installation not included):
+
+- **Astana:** 4,061.11 KZT per Gcal excluding VAT, households with a building heat meter (Astana-Teplotranzit,
+  October 2026 bills). Only metered buildings turn saved heat into a smaller bill, so we use the metered tariff.
+- **Baku:** 14.60 AZN per Gcal including VAT, metered households (Tariff Council decision No. 17, 29.12.2024).
+  No separate tariff for public buildings is published, so this is a lower bound.
+- 1 Gcal = 1,163 kWh. Exchange rates on 24.11.2026: 455.12 KZT and 1.70 AZN per US dollar (national banks).
+
+| City | Heat saved per room per season | Money per room per season | Payback, full kit (~$55) | Payback, lite (~$30) |
+|---|---|---|---|---|
+| Astana | 218-868 kWh (base 484) | 762-3,031 KZT (base 1,690 KZT, about $3.7) | 8-33 years (base 15) | 4.5-18 years (base 8) |
+| Baku | 560-998 kWh (base 760) | 7.0-12.5 AZN (base 9.5 AZN, about $5.6) | 7.5-13 years (base 10) | 4-7 years (base 5) |
+
+Payback (years) = cost per room / money saved per room per season. Numbers: `figures/savings_summary.json`.
+
+**What this means:** at today's low, subsidised household tariffs the hardware pays back slowly. The strongest
+benefits today are comfort (no overheating) and lower CO₂. Payback gets shorter with the lite kit, bulk prices,
+buildings that pay higher tariffs, and the tariff growth expected in Kazakhstan.

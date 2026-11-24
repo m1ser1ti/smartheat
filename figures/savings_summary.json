@@ -40,7 +40,34 @@
       },
       "thermostat_no_forecast_kwh": 3727.8,
       "thermostat_hours_above_22_5": 3.0,
-      "co2_kg_per_kwh_heat": 0.4007
+      "co2_kg_per_kwh_heat": 0.4007,
+      "money": {
+        "tariff_per_kwh": 3.4919,
+        "currency": "KZT",
+        "usd_rate": 455.12,
+        "saved_per_room_season": {
+          "low": 761.83,
+          "base": 1689.74,
+          "high": 3030.8
+        },
+        "saved_per_room_season_usd": {
+          "low": 1.67,
+          "base": 3.71,
+          "high": 6.66
+        },
+        "payback_years": {
+          "full": {
+            "low": 32.9,
+            "base": 14.8,
+            "high": 8.3
+          },
+          "lite": {
+            "low": 17.9,
+            "base": 8.1,
+            "high": 4.5
+          }
+        }
+      }
     },
     "Baku": {
       "season": [
@@ -81,7 +108,34 @@
       },
       "thermostat_no_forecast_kwh": 870.2,
       "thermostat_hours_above_22_5": 0.5,
-      "co2_kg_per_kwh_heat": 0.2244
+      "co2_kg_per_kwh_heat": 0.2244,
+      "money": {
+        "tariff_per_kwh": 0.0126,
+        "currency": "AZN",
+        "usd_rate": 1.7,
+        "saved_per_room_season": {
+          "low": 7.02,
+          "base": 9.54,
+          "high": 12.53
+        },
+        "saved_per_room_season_usd": {
+          "low": 4.13,
+          "base": 5.61,
+          "high": 7.37
+        },
+        "payback_years": {
+          "full": {
+            "low": 13.3,
+            "base": 9.8,
+            "high": 7.5
+          },
+          "lite": {
+            "low": 7.3,
+            "base": 5.3,
+            "high": 4.1
+          }
+        }
+      }
     }
   },
   "demo_moment": "2025-10-21T10:00"

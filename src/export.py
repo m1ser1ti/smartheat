@@ -28,12 +28,22 @@ OVERHEAT, ALERT_AT, T_MIN, T_MAX = 24.0, 23.5, 21.0, 22.0
 DEMO_CITY = "Astana"
 
 # CO2 per kWh of heat = IPCC 2006 fuel factor / generation efficiency (assumption). Network losses excluded.
-# Tariffs: from IR (due 23 November), None until then.
+# Astana household heat tariff with a building heat meter: 4,061.11 KZT per Gcal excluding VAT, used for
+# October 2026 bills (Astana-Teplotranzit via NewTimes.kz, 12.11.2026; see SOURCES.md). Only metered buildings
+# turn saved heat into a smaller bill, so the metered tariff is used. 1 Gcal = 1,163 kWh.
+# Baku: 14.60 AZN per Gcal including VAT, metered households (Tariff Council decision No. 17, 29.12.2024,
+# regulator.gov.az). No separate public-building tariff is published, so this is a lower bound.
 KWH_PER_TJ = 277_777.8
+KWH_PER_GCAL = 1_163.0
+ASTANA_TARIFF_KZT_PER_GCAL = 4_061.11
+BAKU_TARIFF_AZN_PER_GCAL = 14.60
+# Official rates on 24.11.2026: National Bank of Kazakhstan (KZT), Central Bank of Azerbaijan (AZN).
+USD_RATE = {"KZT": 455.12, "AZN": 1.70}
+HARDWARE_USD_PER_ROOM = {"full": 55.0, "lite": 30.0}  # docs/cost_estimate.md
 FACTORS = {
-    "Astana": {"currency": "KZT", "tariff_per_kwh": None,
+    "Astana": {"currency": "KZT", "tariff_per_kwh": ASTANA_TARIFF_KZT_PER_GCAL / KWH_PER_GCAL,
                "fuel": "coal (IPCC other bituminous, 94.6 t CO2/TJ)", "co2_kg_per_kwh": 94_600 / KWH_PER_TJ / 0.85},
-    "Baku": {"currency": "AZN", "tariff_per_kwh": None,
+    "Baku": {"currency": "AZN", "tariff_per_kwh": BAKU_TARIFF_AZN_PER_GCAL / KWH_PER_GCAL,
              "fuel": "natural gas (IPCC, 56.1 t CO2/TJ)", "co2_kg_per_kwh": 56_100 / KWH_PER_TJ / 0.90},
 }
 
@@ -182,6 +192,19 @@ def build_real() -> tuple[dict, dict]:
             "thermostat_hours_above_22_5": round(thermo.hours_above(22.5), 1),
             "co2_kg_per_kwh_heat": round(FACTORS[city]["co2_kg_per_kwh"], 4),
         }
+        tariff = FACTORS[city]["tariff_per_kwh"]
+        if tariff is not None:
+            money = {k: s.saved_kwh * tariff for k, s in r.items()}
+            rate = USD_RATE[FACTORS[city]["currency"]]
+            summary["cities"][city]["money"] = {
+                "tariff_per_kwh": round(tariff, 4), "currency": FACTORS[city]["currency"], "usd_rate": rate,
+                "saved_per_room_season": {k: round(v, 2) for k, v in money.items()},
+                "saved_per_room_season_usd": {k: round(v / rate, 2) for k, v in money.items()},
+                "payback_years": {
+                    option: {k: round(usd * rate / v, 1) for k, v in money.items()}
+                    for option, usd in HARDWARE_USD_PER_ROOM.items()
+                },
+            }
         if city == DEMO_CITY:
             room, forecast, over, moment = _room_and_forecast(times, weather, curve, noise, metrics)
             summary["demo_moment"] = moment

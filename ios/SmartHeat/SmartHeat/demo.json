@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-18T16:56:06+00:00",
+  "generated_at": "2026-11-24T18:28:20+00:00",
   "synthetic": false,
   "notes": [
     "Room is simulated (RC model) on real Astana weather from Open-Meteo; forecast error from LightGBM on ThermBuild test data."
@@ -136,7 +136,12 @@
         "base": 11.5,
         "high": 18.8
       },
-      "money": null,
+      "money": {
+        "currency": "KZT",
+        "low": 761.8,
+        "base": 1689.7,
+        "high": 3030.8
+      },
       "co2_kg": {
         "low": 87.4,
         "base": 193.9,
@@ -162,7 +167,12 @@
         "base": 46.8,
         "high": 53.7
       },
-      "money": null,
+      "money": {
+        "currency": "AZN",
+        "low": 7.0,
+        "base": 9.5,
+        "high": 12.5
+      },
       "co2_kg": {
         "low": 125.6,
         "base": 170.6,
