@@ -1,13 +1,16 @@
-# SmartHeat
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="docs/brand/logo_white.png">
+    <img src="docs/brand/logo.png" width="420" alt="SmartHeat">
+  </picture>
+</p>
 
-**Stop overheating in centrally heated buildings, before it starts.**
+<p align="center"><b>Stop overheating in centrally heated buildings, before it starts.</b></p>
 
-Our project for the **CECECO Clean Energy Hackathon 2027**, track "Bring Clean Energy to Everyday Life".
+<p align="center">Our project for the <b>CECECO Clean Energy Hackathon 2027</b>, track "Bring Clean Energy to Everyday Life".</p>
 
 <p align="center">
-  <img src="docs/images/1_room.png" width="240" alt="Room screen">
-  <img src="docs/images/2_forecast.png" width="240" alt="Forecast screen">
-  <img src="docs/images/3_savings.png" width="240" alt="Savings screen">
+  <img src="docs/images/demo.gif" width="260" alt="App demo">
 </p>
 
 ## The problem
@@ -27,20 +30,41 @@ That is wasted energy, wasted money and extra CO₂.
 
 The forecast model, the simulation and the app work. The sensors and valves are a concept for now.
 
+## The app
+
+<p align="center">
+  <img src="docs/images/1_room.png" width="190" alt="Room">
+  <img src="docs/images/2_forecast.png" width="190" alt="Forecast">
+  <img src="docs/images/3_savings.png" width="190" alt="Savings in Astana">
+  <img src="docs/images/5_savings_baku.png" width="190" alt="Savings in Baku">
+</p>
+
+**Room:** the temperature now, the window, the radiator valve and an overheating alert.
+**Forecast:** the next 3 hours with and without SmartHeat, plus tips.
+**Savings:** heat, money and CO₂ saved per room and per building, for Astana and Baku.
+A phone notification warns before the room overheats. Full demo video: [docs/media/demo.mp4](docs/media/demo.mp4).
+
 ## Results
 
-- **Forecast error: 0.08 °C one hour ahead and 0.17 °C three hours ahead**, tested on real measurements the
-  model never saw. That is 37-46 % better than a simple "no change" guess.
-- **6-19 % less heat per room** over one winter in a simulated room in Astana (real 2025/26 weather),
-  and the room no longer overheats (80 hours above 24 °C become 0).
-- **About $55 per room** for the hardware ([cost estimate](docs/cost_estimate.md)).
+**Forecast:** 0.08 °C error one hour ahead and 0.17 °C three hours ahead, tested on real measurements the model
+never saw. That is 37-46 % better than a simple "no change" guess.
 
-The savings come from a simulation, not from a real building. All sources and assumptions are in
-[SOURCES.md](SOURCES.md).
+**Savings** (simulated room, real weather of the 2025/26 heating season):
+
+| Per room, one season | Astana, Kazakhstan | Baku, Azerbaijan |
+|---|---|---|
+| Heat saved | 6-19 % (base 484 kWh) | 39-54 % (base 760 kWh) |
+| CO₂ avoided | about 194 kg | about 171 kg |
+| Money saved | about 1,690 KZT ($3.7) | about 9.5 AZN ($5.6) |
+| Hours above 24 °C | 80 → 0 | 80 → 0 |
+
+**Hardware:** about $55 per room, payback about 15 years in Astana and 10 years in Baku at today's low household
+tariffs (lite kit: 8 and 5 years). See the [cost estimate](docs/cost_estimate.md).
 
 ![Room temperature with and without SmartHeat](figures/savings_room_temp.png)
 
-A 30-second demo of the app: [docs/media/demo.mp4](docs/media/demo.mp4).
+The savings come from a simulation, not from a real building. The Baku result depends more on assumptions.
+All sources and assumptions are in [SOURCES.md](SOURCES.md).
 
 ## Run it yourself
 
@@ -75,7 +99,7 @@ Signing & Capabilities and press Run.
 | `src/` | Python: weather download, data cleaning, forecast model, savings simulation, app data, charts, diagram |
 | `ios/SmartHeat/` | The iPhone app (SwiftUI) |
 | `figures/` | Charts and result numbers |
-| `docs/` | Cost estimate, app data format, screenshots, demo video |
+| `docs/` | Cost estimate, app data format, screenshots, demo video, logo |
 | `tests/` | Tests for the simulation |
 
 ## Data and credits
@@ -83,6 +107,7 @@ Signing & Capabilities and press Run.
 - Room measurements: **ThermBuild** dataset, Fraunhofer, [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)
   ([paper](https://arxiv.org/abs/2606.01994), [data](https://fordatis.fraunhofer.de/handle/fordatis/486)).
 - Weather: [Open-Meteo](https://open-meteo.com/), CC BY 4.0, free API for non-commercial use.
+- Heat tariffs and exchange rates: see [SOURCES.md](SOURCES.md).
 
 ## License
 
